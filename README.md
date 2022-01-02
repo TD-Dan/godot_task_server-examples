@@ -1,5 +1,6 @@
 # godot_task_server-examples
-Examples for how to use the godot_task_server plugin for Godot Game Engine
+Examples for how to use the **godot_task_server** plugin for Godot Game Engine
+
 https://github.com/kupoli/godot_task_server
 
 ## Usage
