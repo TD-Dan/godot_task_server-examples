@@ -1,0 +1,3 @@
+[submodule "addons/godot_task_server"]
+	path = addons/godot_task_server
+	url = git@github.com:kupoli/godot_task_server.git

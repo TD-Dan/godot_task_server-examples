@@ -8,10 +8,35 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "TaskServerClient",
+"language": "GDScript",
+"path": "res://addons/godot_task_server/TaskServerClient.gd"
+}, {
+"base": "Reference",
+"class": "TaskServerWorkItem",
+"language": "GDScript",
+"path": "res://addons/godot_task_server/TaskServerWorkItem.gd"
+} ]
+_global_script_class_icons={
+"TaskServerClient": "",
+"TaskServerWorkItem": ""
+}
+
 [application]
 
 config/name="TaskServerTest"
+run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+TaskServer="*res://addons/godot_task_server/TaskServer.gd"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/godot_task_server/plugin.cfg" )
 
 [physics]
 
