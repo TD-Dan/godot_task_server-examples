@@ -2,7 +2,7 @@
 
 Examples for how to use the **godot_task_server** plugin for Godot Game Engine
 
-https://github.com/kupoli/godot_task_server
+https://github.com/TD-Dan/godot_task_server
 
 ## Usage
 Copy contents of this folder to your own filesystem and open in Godot
