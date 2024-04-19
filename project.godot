@@ -6,28 +6,13 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
-
-_global_script_classes=[ {
-"base": "Node",
-"class": "TaskServerClient",
-"language": "GDScript",
-"path": "res://addons/godot_task_server/TaskServerClient.gd"
-}, {
-"base": "Reference",
-"class": "TaskServerWorkItem",
-"language": "GDScript",
-"path": "res://addons/godot_task_server/TaskServerWorkItem.gd"
-} ]
-_global_script_class_icons={
-"TaskServerClient": "",
-"TaskServerWorkItem": ""
-}
+config_version=5
 
 [application]
 
 config/name="TaskServer Examples"
 run/main_scene="res://main.tscn"
+config/features=PackedStringArray("4.2")
 config/icon="res://icon.png"
 
 [autoload]
@@ -36,7 +21,7 @@ TaskServer="*res://addons/godot_task_server/TaskServer.gd"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/godot_task_server/plugin.cfg" )
+enabled=PackedStringArray("res://addons/godot_task_server/plugin.cfg")
 
 [physics]
 
@@ -44,7 +29,6 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+environment/defaults/default_environment="res://default_env.tres"
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
-vram_compression/import_etc2=false
-environment/default_environment="res://default_env.tres"

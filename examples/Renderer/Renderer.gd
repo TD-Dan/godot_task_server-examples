@@ -12,9 +12,9 @@ enum R_STATE {
 	READY
 }
 
-var render_state = R_STATE.NONE setget _set_render_state
+var render_state = R_STATE.NONE: set = _set_render_state
 var render_chunk_scene = preload("res://examples/Renderer/RenderChunk.tscn")
-onready var render_container = $HSplitContainer/RenderChunkContainer
+@onready var render_container = $HSplitContainer/RenderChunkContainer
 
 func _set_render_state(val):
 	render_state = val
@@ -27,7 +27,7 @@ func _set_render_state(val):
 		render_container.columns = x_count
 		
 		for x in range(0,x_count*y_count):
-			render_container.add_child(render_chunk_scene.instance())
+			render_container.add_child(render_chunk_scene.instantiate())
 		
 		render_state = R_STATE.INIT
 	
@@ -60,7 +60,7 @@ func _on_StartButton_pressed():
 
 
 func _on_BackButton_pressed():
-	get_tree().change_scene("res://main.tscn")
+	get_tree().change_scene_to_file("res://main.tscn")
 
 
 func _on_ClearButton_pressed():

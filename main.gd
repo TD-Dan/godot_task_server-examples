@@ -17,4 +17,4 @@ func _ready():
 
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://examples/Renderer/Main.tscn")
+	get_tree().change_scene_to_file("res://examples/Renderer/Main.tscn")

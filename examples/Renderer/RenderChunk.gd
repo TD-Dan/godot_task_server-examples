@@ -1,7 +1,7 @@
 extends ColorRect
 
 var my_work_item : TaskServerWorkItem
-var my_color_data : Color = Color() setget _set_my_color
+var my_color_data : Color = Color(): set = _set_my_color
 
 var rendering = false
 
@@ -11,8 +11,8 @@ func _set_my_color(val):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$TaskServerClient.connect("work_progress",self,"_on_work_progress")
-	$TaskServerClient.connect("work_ready",self,"_on_work_ready")
+	$TaskServerClient.connect("work_progress", Callable(self, "_on_work_progress"))
+	$TaskServerClient.connect("work_ready", Callable(self, "_on_work_ready"))
 	_set_my_color(Color(0.1, 0.1, 0.1, 1))
 
 # Updates the RenderChunk
@@ -22,7 +22,7 @@ func render(priority):
 	
 	my_work_item = TaskServerWorkItem.new()
 	my_work_item.data = Color(1,0,0,1) # data to manipulate with function
-	my_work_item.function = funcref(self, "render_task")
+	my_work_item.function = Callable(self, "render_task")
 	my_work_item.priority = priority
 	$TaskServerClient.post_work(my_work_item)
 

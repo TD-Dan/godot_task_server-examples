@@ -18,12 +18,12 @@ __meta__ = {
 }
 
 [node name="ControlContainer" type="VBoxContainer" parent="HSplitContainer"]
-margin_right = 100.0
-margin_bottom = 600.0
+offset_right = 100.0
+offset_bottom = 600.0
 
 [node name="XSpinBox" type="SpinBox" parent="HSplitContainer/ControlContainer"]
-margin_right = 100.0
-margin_bottom = 24.0
+offset_right = 100.0
+offset_bottom = 24.0
 min_value = 2.0
 value = 15.0
 prefix = "X:"
@@ -32,9 +32,9 @@ __meta__ = {
 }
 
 [node name="YSpinBox2" type="SpinBox" parent="HSplitContainer/ControlContainer"]
-margin_top = 28.0
-margin_right = 100.0
-margin_bottom = 52.0
+offset_top = 28.0
+offset_right = 100.0
+offset_bottom = 52.0
 min_value = 2.0
 value = 10.0
 prefix = "Y:"
@@ -43,28 +43,28 @@ __meta__ = {
 }
 
 [node name="ClearButton" type="Button" parent="HSplitContainer/ControlContainer"]
-margin_top = 56.0
-margin_right = 100.0
-margin_bottom = 76.0
+offset_top = 56.0
+offset_right = 100.0
+offset_bottom = 76.0
 text = "Clear"
 
 [node name="StartButton" type="Button" parent="HSplitContainer/ControlContainer"]
-margin_top = 80.0
-margin_right = 100.0
-margin_bottom = 100.0
+offset_top = 80.0
+offset_right = 100.0
+offset_bottom = 100.0
 text = "Start"
 
 [node name="BackButton" type="Button" parent="HSplitContainer/ControlContainer"]
-margin_top = 580.0
-margin_right = 100.0
-margin_bottom = 600.0
+offset_top = 580.0
+offset_right = 100.0
+offset_bottom = 600.0
 size_flags_vertical = 10
 text = "Back to menu"
 
 [node name="RenderChunkContainer" type="GridContainer" parent="HSplitContainer"]
-margin_left = 112.0
-margin_right = 1024.0
-margin_bottom = 600.0
+offset_left = 112.0
+offset_right = 1024.0
+offset_bottom = 600.0
 columns = 3
 
 [connection signal="value_changed" from="HSplitContainer/ControlContainer/XSpinBox" to="." method="_on_XSpinBox_value_changed"]
