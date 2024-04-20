@@ -15,12 +15,19 @@ func _ready():
 	$TaskServerClient.connect("work_ready", Callable(self, "_on_work_ready"))
 	_set_my_color(Color(0.1, 0.1, 0.1, 1))
 
+
+func _exit_tree():
+	if my_work_item:
+		my_work_item.cancel = true
+
+
 # Updates the RenderChunk
 func render(priority):
 	rendering = true
-	_set_my_color(Color(0, 0.5, 0, 1))
+	_set_my_color(Color(0.0, 0.5, 0.0, 1))
 	
 	my_work_item = TaskServerWorkItem.new()
+	my_work_item.metadata.name = "Render"
 	my_work_item.data = Color(1,0,0,1) # data to manipulate with function
 	my_work_item.function = Callable(self, "render_task")
 	my_work_item.priority = priority
@@ -28,7 +35,6 @@ func render(priority):
 
 # called inside a TaskWorker thread
 func render_task(data):
-	randomize()
 	var random_number = randf() #get a random number between 0 and 1
 	
 	#Simulate some render delay
@@ -55,4 +61,4 @@ func _on_work_ready(ready_work):
 
 func _on_RenderChunk_mouse_entered():
 	if !rendering:
-		render(10)
+		render(10.0)

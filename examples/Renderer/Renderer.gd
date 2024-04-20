@@ -33,7 +33,7 @@ func _set_render_state(val):
 	
 	if render_state == R_STATE.RENDER_INIT:
 		for chunk in render_container.get_children():
-			chunk.render(100)
+			chunk.render(0.0)
 		render_state = R_STATE.RENDERING
 
 

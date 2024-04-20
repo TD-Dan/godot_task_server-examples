@@ -1,70 +1,55 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://djkw7maaajn66"]
 
-[ext_resource path="res://examples/Renderer/Renderer.gd" type="Script" id=1]
+[ext_resource type="Script" path="res://examples/Renderer/Renderer.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://datrhxrev4u75" path="res://addons/godot_task_server/TaskServerDock.tscn" id="2_frqvo"]
 
-[node name="Control" type="Control"]
+[node name="Renderer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+split_offset = 270
 
 [node name="ControlContainer" type="VBoxContainer" parent="HSplitContainer"]
-offset_right = 100.0
-offset_bottom = 600.0
+layout_mode = 2
 
 [node name="XSpinBox" type="SpinBox" parent="HSplitContainer/ControlContainer"]
-offset_right = 100.0
-offset_bottom = 24.0
+layout_mode = 2
 min_value = 2.0
 value = 15.0
 prefix = "X:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="YSpinBox2" type="SpinBox" parent="HSplitContainer/ControlContainer"]
-offset_top = 28.0
-offset_right = 100.0
-offset_bottom = 52.0
+layout_mode = 2
 min_value = 2.0
 value = 10.0
 prefix = "Y:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ClearButton" type="Button" parent="HSplitContainer/ControlContainer"]
-offset_top = 56.0
-offset_right = 100.0
-offset_bottom = 76.0
+layout_mode = 2
 text = "Clear"
 
 [node name="StartButton" type="Button" parent="HSplitContainer/ControlContainer"]
-offset_top = 80.0
-offset_right = 100.0
-offset_bottom = 100.0
+layout_mode = 2
 text = "Start"
 
+[node name="TaskServer" parent="HSplitContainer/ControlContainer" instance=ExtResource("2_frqvo")]
+layout_mode = 2
+
 [node name="BackButton" type="Button" parent="HSplitContainer/ControlContainer"]
-offset_top = 580.0
-offset_right = 100.0
-offset_bottom = 600.0
-size_flags_vertical = 10
+layout_mode = 2
 text = "Back to menu"
 
 [node name="RenderChunkContainer" type="GridContainer" parent="HSplitContainer"]
-offset_left = 112.0
-offset_right = 1024.0
-offset_bottom = 600.0
+layout_mode = 2
 columns = 3
 
 [connection signal="value_changed" from="HSplitContainer/ControlContainer/XSpinBox" to="." method="_on_XSpinBox_value_changed"]

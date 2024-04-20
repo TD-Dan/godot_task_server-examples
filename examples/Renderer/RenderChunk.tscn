@@ -1,19 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://bgdb1s8e0vwbe"]
 
-[ext_resource path="res://examples/Renderer/RenderChunk.gd" type="Script" id=1]
-[ext_resource path="res://addons/godot_task_server/TaskServerClient.gd" type="Script" id=2]
+[ext_resource type="Script" path="res://examples/Renderer/RenderChunk.gd" id="1"]
+[ext_resource type="Script" path="res://addons/godot_task_server/TaskServerClient.gd" id="2"]
 
 [node name="RenderChunk" type="ColorRect"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("1")
 
 [node name="TaskServerClient" type="Node" parent="."]
-script = ExtResource( 2 )
+script = ExtResource("2")
 
 [connection signal="mouse_entered" from="." to="." method="_on_RenderChunk_mouse_entered"]
